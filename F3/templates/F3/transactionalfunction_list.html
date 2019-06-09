@@ -21,7 +21,14 @@
                 {% for element in object_list %}
                         <tr>
                         <td>{{ element.name }}</td>
-                        <td>{{ element.f_type }}</td>
+                        <td>{% if element.f_type == 0 %}
+                                EE
+                            {% elif element.f_type == 1 %}
+                                CE
+                            {% else %}
+                                SE  
+                            {% endif %}
+                        </td>
                         <td>{{ element.counter_name }}</td>
                         <td>{{ element.complexity }}</td>
                         <td>{{ element.function_points }}</td>
