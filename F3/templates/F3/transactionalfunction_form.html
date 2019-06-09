@@ -14,7 +14,7 @@
             let function_points = document.getElementById("id_function_points");
             let complexity = document.getElementById("id_complexity");
 
-            let function_type = document.getElementById("id_f_type");
+            var function_type = document.getElementById("id_f_type");
 
             complexity.disabled = true;
             function_points.disabled = true;
@@ -23,7 +23,20 @@
             let der_item = $("#id_qt_DER");
             
             alr_item.add(der_item).change(function(){
-                alert("lul");
+                let functype_value = function_type.value;
+
+                if (functype_value === 0) // EE
+                {
+
+                }
+                else if (functype_value === 1) //CE
+                {
+
+                }
+                else //SE
+                {
+
+                }
             });
 
         </script>    
