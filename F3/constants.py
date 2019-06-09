@@ -3,3 +3,9 @@ F_TYPE_CHOICES = (
    (1, 'CE'),
    (2, 'SE'),
 )
+
+COMPLEXITY_CHOICES = (
+   ('Alta', 'Alta'),
+   ('Media', 'Media'),
+   ('Baixa', 'Baixa'),
+)
