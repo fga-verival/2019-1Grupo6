@@ -12,3 +12,9 @@ class TransactionalFunctionCreate(CreateView):
 
 class TransactionalFunctionList(ListView):
     model = TransactionalFunction
+
+
+class TransactionalFunctionUpdate(UpdateView):
+    model = TransactionalFunction
+    fields = ['name', 'f_type', 'qt_ALR', 'qt_DER', 'function_points', 'counter_name', 'complexity']
+    success_url = reverse_lazy('ft_list')
