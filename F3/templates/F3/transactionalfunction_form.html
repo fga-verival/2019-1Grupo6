@@ -1,10 +1,31 @@
+{% load static %}
+
 <html>
-    <head></head>
+    <head>
+        <script type="text/javascript" src="{% static "jquery.min.js" %}" /></script>
+    </head>
     <body>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
         <input type="submit" value="Submit" />
-    </form>
+        </form>
+        <script type="text/javascript">
+            let function_points = document.getElementById("id_function_points");
+            let complexity = document.getElementById("id_complexity");
+
+            let function_type = document.getElementById("id_f_type");
+
+            complexity.disabled = true;
+            function_points.disabled = true;
+
+            let alr_item = $("#id_qt_ALR");
+            let der_item = $("#id_qt_DER");
+            
+            alr_item.add(der_item).change(function(){
+                alert("lul");
+            });
+
+        </script>    
     </body>
 </html>
