@@ -13,3 +13,72 @@ class TransactionalFunction(models.Model):
 
     def __str__(self):
         return self.name
+
+    def getFunctionPoints(self):
+        if (f_type == 0):
+            if (qt_ALR <= 1):
+                if (qt_DER <= 15):
+                    complexity = "Baixa"
+                else:
+                    complexity = "Media"
+            elif (qt_ALR == 2):
+                if (qt_DER >= 1 and qt_DER <= 4):
+                    complexity = "Baixa"
+                elif (qt_DER >= 5 and qt_DER <= 15):
+                    complexity = "Media"
+                elif (qt_DER > 15):
+                    complexity = "Alta"
+            else:
+                if (qt_DER < 5): 
+                    complexity = "Media"
+                else:
+                    complexity = "Alta"
+            pf_dict = {'Baixa': 3, 'Media': 4, 'Alta': 6 }
+
+            function_points = pf_dict[complexity]
+
+        if (f_type == 1):
+            if (qt_ALR <= 1):
+                if (qt_DER <= 15):
+                    complexity = "Baixa"
+                else:
+                    complexity = "Media"
+            elif (qt_ALR == 2 and qt_ALR == 3):
+                if (qt_DER >= 1 and qt_DER <= 4):
+                    complexity = "Baixa"
+                elif (qt_DER >= 5 and qt_DER <= 19):
+                    complexity = "Media"
+                elif (qt_DER > 20):
+                    complexity = "Alta"
+            else:
+                if (qt_DER < 5): 
+                    complexity = "Media"
+                else:
+                    complexity = "Alta"
+
+            pf_dict = {'Baixa': 3, 'Media': 4, 'Alta': 6 }
+
+            function_points = pf_dict[complexity]
+
+        if (f_type == 2):
+            if (qt_ALR <= 1):
+                if (qt_DER <= 20):
+                    complexity = "Baixa"
+                else:
+                    complexity = "Media"
+            elif (qt_ALR == 2 and qt_ALR == 3):
+                if (qt_DER >= 1 and qt_DER <= 5):
+                    complexity = "Baixa"
+                elif (qt_DER >= 6 and qt_DER <= 19):
+                    complexity = "Media"
+                elif (qt_DER > 20):
+                    complexity = "Alta"
+            else:
+                if (qt_DER < 6): 
+                    complexity = "Media"
+                else:
+                    complexity = "Alta"
+
+            pf_dict = {'Baixa': 4, 'Media': 5, 'Alta': 7 }
+
+            function_points = pf_dict[complexity]
