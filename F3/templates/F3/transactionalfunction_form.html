@@ -21,21 +21,99 @@
 
             let alr_item = $("#id_qt_ALR");
             let der_item = $("#id_qt_DER");
+            let jq_function_type = $("#id_f_type");
             
-            alr_item.add(der_item).change(function(){
+            alr_item.add(der_item).add(jq_function_type).change(function(){
                 let functype_value = function_type.value;
+                let alr_value = alr_item.val();
+                let der_value = der_item.val();
 
-                if (functype_value === 0) // EE
+                if (functype_value == 0) // EE
                 {
+                    if (alr_value <= 1){
+                        if (der_value <= 15)
+                            complexity.value = "Baixa";
+                        else
+                            complexity.value = "Media";
+                    }else if (alr_value == 2){
+                        if (der_value >= 1 && der_value <= 4)
+                            complexity.value = "Baixa";
+                        else if (der_value >= 5 && der_value <= 15)
+                            complexity.value = "Media";
+                        else if (der_value > 15)
+                            complexity.value = "Alta";
+                    }else{
+                        if (der_value < 5)  
+                            complexity.value = "Media";
+                        else
+                            complexity.value = "Alta";
+                    }
 
+                    pf_dict = {
+                        'Baixa': 3,
+                        'Media': 4,
+                        'Alta': 6
+                    }
+
+                    function_points.value = pf_dict[complexity.value];
                 }
-                else if (functype_value === 1) //CE
+                else if (functype_value == 1) //CE
                 {
+                    if (alr_value <= 1){
+                        if (der_value <= 15)
+                            complexity.value = "Baixa";
+                        else
+                            complexity.value = "Media";
+                    }else if (alr_value == 2 || alr_value == 3){
+                        if (der_value >= 1 && der_value <= 4)
+                            complexity.value = "Baixa";
+                        else if (der_value >= 5 && der_value <= 19)
+                            complexity.value = "Media";
+                        else if (der_value >= 20)
+                            complexity.value = "Alta";
+                    }else{
+                        if (der_value < 5)  
+                            complexity.value = "Media";
+                        else
+                            complexity.value = "Alta";
+                    }
 
+                    pf_dict = {
+                        'Baixa': 3,
+                        'Media': 4,
+                        'Alta': 6
+                    }
+
+                    function_points.value = pf_dict[complexity.value];
                 }
                 else //SE
                 {
+                    if (alr_value <= 1){
+                        if (der_value <= 20)
+                            complexity.value = "Baixa";
+                        else
+                            complexity.value = "Media";
+                    }else if (alr_value == 2 || alr_value == 3){
+                        if (der_value >= 1 && der_value <= 5)
+                            complexity.value = "Baixa";
+                        else if (der_value >= 6 && der_value <= 19)
+                            complexity.value = "Media";
+                        else if (der_value >= 20)
+                            complexity.value = "Alta";
+                    }else{
+                        if (der_value < 6)  
+                            complexity.value = "Media";
+                        else
+                            complexity.value = "Alta";
+                    }
 
+                    pf_dict = {
+                        'Baixa': 4,
+                        'Media': 5,
+                        'Alta': 7
+                    }
+
+                    function_points.value = pf_dict[complexity.value];
                 }
             });
 
