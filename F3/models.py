@@ -43,7 +43,7 @@ class TransactionalFunction(models.Model):
                     self.complexity = "Baixa"
                 else:
                     self.complexity = "Media"
-            elif (self.qt_ALR == 2 and self.qt_ALR == 3):
+            elif (self.qt_ALR == 2 or self.qt_ALR == 3):
                 if (self.qt_DER >= 1 and self.qt_DER <= 4):
                     self.complexity = "Baixa"
                 elif (self.qt_DER >= 5 and self.qt_DER <= 19):
@@ -66,7 +66,7 @@ class TransactionalFunction(models.Model):
                     self.complexity = "Baixa"
                 else:
                     self.omplexity = "Media"
-            elif (self.qt_ALR == 2 and self.qt_ALR == 3):
+            elif (self.qt_ALR == 2 or self.qt_ALR == 3):
                 if (self.qt_DER >= 1 and self.qt_DER <= 5):
                     self.complexity = "Baixa"
                 elif (self.qt_DER >= 6 and self.qt_DER <= 19):
