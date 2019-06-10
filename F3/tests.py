@@ -52,4 +52,26 @@ class TransactionalFunctionTestCase(TestCase):
         self.assertEquals(se_complexity, SE.complexity)
 
 
+    def test_function_points_quantity_false(self):
+        obj = TransactionalFunction.objects.get(id=1)
+        self.assertNotEqual(obj.function_points, 3)
+        obj = TransactionalFunction.objects.get(id=2)
+        self.assertNotEqual(obj.function_points, 4)
+
+        obj = TransactionalFunction.objects.create(name = "CE", f_type = 1,
+                                             qt_ALR = 14, qt_DER = 5,
+                                             function_points = 6,
+                                             counter_name = "B",
+                                             complexity = "Media")
+
+        self.assertEquals(obj.function_points, 6)
+
+        obj = TransactionalFunction.objects.create(name = "SE", f_type = 1,
+                                             qt_ALR = 14, qt_DER = 5,
+                                             function_points = 5,
+                                             counter_name = "B",
+                                             complexity = "Media")
+
+        self.assertEquals(obj.function_points, 5)
+
 
