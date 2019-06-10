@@ -33,6 +33,14 @@
                 let alr_value = alr_item.val();
                 let der_value = der_item.val();
 
+                if (alr_value < 0){
+                    alr_item.val("0");
+                }
+
+                if (der_value < 1){
+                    der_item.val("1");
+                }
+
                 if (functype_value == 0) // EE
                 {
                     if (alr_value <= 1){
