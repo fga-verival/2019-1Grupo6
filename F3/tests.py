@@ -52,4 +52,25 @@ class TransactionalFunctionTestCase(TestCase):
         self.assertEquals(se_complexity, SE.complexity)
 
 
+    def test_boundary_testing(self):
+        EE = TransactionalFunction.objects.get(name = "EE")
+        
+        self.assertEquals(True ,(EE.qt_ALR >= 0 and EE.qt_ALR > -1))
+        self.assertEquals(True ,(EE.qt_DER < 0 and EE.qt_DER >= 1))
+
+        CE = TransactionalFunction.objects.get(name = "CE")
+
+        self.assertEquals(True ,(CE.qt_ALR >= 0 and CE.qt_ALR > -1))
+        self.assertEquals(True ,(CE.qt_DER < 0 and CE.qt_DER >= 1))
+
+        SE = TransactionalFunction.objects.get(name = "SE")
+
+        self.assertEquals(True ,(SE.qt_ALR >= 0 and SE.qt_ALR > -1))
+        self.assertEquals(True ,(SE.qt_DER < 0 and SE.qt_DER >= 1))
+
+
+
+
+
+
 
